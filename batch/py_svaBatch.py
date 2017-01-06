@@ -48,8 +48,18 @@ def svaBatch(filenameEspr, filenameInfo):
 	)
 
 	r_newEdata = robjects.r['f_sva'](filenameEspr, filenameInfo)
-	newEdata = pandas2ri.ri2py(r_newEdata)
-	return newEdata
+	#newEdata = pandas2ri.ri2py(r_newEdata)
+	return r_newEdata
+	
+
+def writeRFrame(rFrameName, filenameOut):
+    robjects.r(
+            '''
+            writeRFrame <- function(rFrameName, filenameOut)
+            write.csv(rFrameName, file = filenameOut) 
+            '''
+                )
+    r_newEdata = robjects.r['writeRFrame'](rFrameName, filenameOut)
 
 
 def plotClutering():
@@ -65,6 +75,5 @@ if __name__ == "__main__":
 	parser.add_option("-i", "--fileIn", dest="filenameInfo", help="open sample information file", metavar="FILE")
 	parser.add_option("-o", "--fileOut", dest="filenameOut", help="output file name", metavar="FILE", default="sampleOut.csv")
 	(options, args) = parser.parse_args()
-
 	newEdata = svaBatch(options.filenameEspr, options.filenameInfo)
-	np.savetxt(options.filenameOut, newEdata, delimiter=",")
+	writeRFrame(newEdata, options.filenameOut)
