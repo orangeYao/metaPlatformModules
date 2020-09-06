@@ -1,16 +1,16 @@
 # metaPlatformModules
 
-##funcPredict.py
+## funcPredict.py
 
-###Description:
+### Description:
 
 funcPredict takes in a file C containing a matarix showing functional corelation between a group of genes together with file B with a list of genes with known functions. The resulting output gives a prediction of genes whose functions remain unknown.  
 
-###Usage:
+### Usage:
 	python functionPrediction/funcPredict.py -c sampleCorr.csv -b sampleB.csv -o sampleOut.csv 
 	(default to read from ../../data without flag indicated)
 
-###Arguments: 
+### Arguments: 
 	-c: file containing a square matrix where both colum and row names represent gene names, element Aij located at ith row and jth column is set to 1 if there exists known functional relationship between gene i and gene j, otherwise it's set to zero.
 
 	-b: file containing a list of gene names whose function is already known to us
