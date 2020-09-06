@@ -20,17 +20,17 @@ funcPredict takes in a file C containing a matarix showing functional corelation
 
 
 
-##cutTree_r.py
+## cutTree_r.py
 
-###Description:
+### Description:
 
 cutTree_r takes in a file E containing data about espression regarding to different samples and genes, then output Topological Overlap Matrix and a branch pruning of hierarchical clustering dendrograms. R package "WGCNA" is required.
 
-###Usage: 
+### Usage: 
 	python cut/cutTree_r.py -e sampleEspression.csv -t sampleOutDissTom.csv -c sampleOutColorh.csv
 	(default to read from ../../data without flag indicated)
 
-###Arguments:
+### Arguments:
 	-e: file containing espression of genes for different samples, with genes as row names and samples as column names 
 	
 	-t: indicate output name for diss Topological Overlap Matrix (default as sampleOutDissTom.csv)
@@ -38,16 +38,16 @@ cutTree_r takes in a file E containing data about espression regarding to differ
 	-c: indicate output name for dynamic tree cut (default as sampleOutColorh.csv)
 
 
-##py_svaBatch.py
+## py_svaBatch.py
 
-###Description:
+### Description:
 
 py_svaBatch takes in a file E containing data about espression regarding to different samples and genes, and a file I containging a description including concerned features regarding to different samples. R package "sva" is required. A visualization of such operation by clustering and PCA relying on R package "dendextend" will be accesible soon.
 
-###Usage:
+### Usage:
 	python batch/py_svaBatch.py -e sampleEspression.csv -i sampleInfo.csv -o sampleOut.csv 
 
-###Arguments:
+### Arguments:
 	-e: file containing espression of genes for different samples, with genes as row names and samples as column names
 
 	-i: file containing information about concerned features regarding to different samples
